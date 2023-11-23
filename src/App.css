@@ -51,4 +51,34 @@
   margin-bottom: 20px;
  }
   
+ .App-footer{
+  margin: auto;
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  background-color: #3d3d6c;
+  color: white;
+ }
 
+.footer-cat {
+    background: url("https://i.pinimg.com/originals/7d/10/d4/7d10d49f8cc89bde04981a5dfa644bad.gif") no-repeat center center;
+    width: 88px;
+    height: 100px;
+    background-size:100%;
+    top: 38px;
+    position: relative;
+    animation: motion 43s linear infinite;
+}
+
+.footer-bar {
+    overflow-x: hidden;
+}
+
+@keyframes motion {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -20%;
+  }
+}
