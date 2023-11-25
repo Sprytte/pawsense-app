@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MyChart from './Components/Graph';
 import Login from './Components/Login';
+import Footer from './Components/Footer';
 
 function Home() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -39,6 +40,7 @@ function Home() {
         ))}
         <p>The current time is {currentTime}.</p>
       </div>
+      <Footer />
     </div>
   );
 }
