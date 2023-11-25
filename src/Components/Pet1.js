@@ -19,11 +19,12 @@ function Pet1Display({ pet }) {
       }}>
         <Card.Img variant="top" src={cat} width={200} alt="" />
         <Card.Body>
-          <Card.Title>Pet: {pet[1]}</Card.Title>
+          <Card.Title>Pet Name: {pet[1]}</Card.Title>
           <Card.Text>
-            <p>Pet weight: {pet[3]} kg</p>
+            <p>Type: {pet[2]}</p>
+            <p>Weight: {pet[3]} kg</p>
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button variant="primary">View details</Button>
         </Card.Body>
       </Card>
     </div>

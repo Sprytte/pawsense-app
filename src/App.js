@@ -6,6 +6,7 @@ import NavigationBar from './Components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MyChart from './Components/Graph';
+import Login from './Components/Login';
 
 function Home() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -24,7 +25,6 @@ function Home() {
     });
   }, []);
 
-  
   return (
     <div className="App">
       <header className="App-header">
@@ -42,7 +42,6 @@ function Home() {
     </div>
   );
 }
-
 function App() {
   const [weightsData, setWeightsData] = useState({});
   //fetch the weight data from backend, doing it in App because does not recognize in home component
@@ -55,12 +54,34 @@ function App() {
       })
       .catch(error => console.error('Error fetching weight:', error));
   }, []);
+  
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch('/login')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setUsers(data);
+      });
+  }, []);
+  
+  const handleLogin = (userData) => {
+  console.log('User logged in:', userData);
+  };
 
   return (
     <Router>
       <div className="App">       
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+            path="/"
+            element={
+              <div className="login-container">
+                <Login users={users} onLogin={handleLogin} />
+              </div>
+            }
+          />
+        <Route path="/home" element={<Home />} />
         <Route path="/weights" element={<MyChart weightsData={weightsData}/>} />
       </Routes>
     </div>

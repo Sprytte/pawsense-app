@@ -50,5 +50,10 @@
 .card-container .custom-card {
   margin-bottom: 20px;
  }
+ .login-container {
+  padding-top: 5%;
+  justify-content: center;
+  height: 100vh;
+}
   
 
