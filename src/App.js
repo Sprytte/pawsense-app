@@ -11,14 +11,6 @@ import Footer from './Components/Footer';
 import PetDetails from './Components/PetDetails';
 
 function Home() {
-  const [currentTime, setCurrentTime] = useState(0);
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      console.log(data);
-      setCurrentTime(data.time);
-    });
-  }, []);
-
   const [pets, setPets] = useState([]);
   useEffect(() => {
     fetch('/pets').then(res => res.json()).then(data => {
@@ -39,7 +31,6 @@ function Home() {
         {pets.map(pet => (
           <Pet1Display key={pet.id} pet={pet} />
         ))}
-        <p>The current time is {currentTime}.</p>
       </div>
       <Footer />
     </div>
