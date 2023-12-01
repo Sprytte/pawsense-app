@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MyChart from './Components/Graph';
 import Login from './Components/Login';
 import Footer from './Components/Footer';
+import PetDetails from './Components/PetDetails';
 
 function Home() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -85,6 +86,7 @@ function App() {
           />
         <Route path="/home" element={<Home />} />
         <Route path="/weights" element={<MyChart weightsData={weightsData}/>} />
+        <Route path="/petDetails/:petId" element={<PetDetails />} />
       </Routes>
     </div>
     </Router>
