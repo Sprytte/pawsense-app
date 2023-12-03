@@ -5,19 +5,23 @@ import NavigationBar from './Navbar';
 
 Chart.register(...registerables);
 
-const MyChart = ({weightsData}) => {
+const MyChart = ({ weightsData }) => {
+  const parsedTime = JSON.parse(weightsData.time_json || '[]');
+  const parsedWeights = JSON.parse(weightsData.weights_json || '[]');
+
   const data = {
-    labels: weightsData.time_json || [],
+    labels: parsedTime,
     datasets: [
       {
         label: 'Weights',
-        data: weightsData.weights_json || [],
+        data: parsedWeights,
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1
       }
     ]
   };
+
   const options = {
     scales: {
       y: {
@@ -25,15 +29,17 @@ const MyChart = ({weightsData}) => {
       }
     }
   };
+
   return (
     <div className="App">
-    <header className='App-header'>
+      <header className='App-header'>
         <NavigationBar />
-    </header>
-    <div>
-      <Line data={data} options={options} />
-    </div>
+      </header>
+      <div>
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };
+
 export default MyChart;
