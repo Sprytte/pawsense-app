@@ -1,7 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
-import NavigationBar from './Navbar';
 
 Chart.register(...registerables);
 
@@ -15,8 +14,8 @@ const MyFoodChart = ({ weightsData }) => {
       {
         label: 'Weights',
         data: parsedWeights,
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#2d2d2d',
+        fill: true, 
         tension: 0.1
       }
     ]
