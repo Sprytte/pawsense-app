@@ -27,7 +27,7 @@ function PetDetails() {
   
 
   if (!petDetails) {
-    return <div className='app loading'>Loading...</div>;
+    return <div className='app loading'>No pet details</div>;
   }
 
 return (
